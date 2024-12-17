@@ -183,5 +183,20 @@ public class TicTacToeTests
 
         result.Should().Be('\0');
     }
+    
+    [Fact]
+    public void TicTacToe_CannotPlayInOccupatedSpots()
+    {
+        var player1 = Substitute.For<IPlayer>();
+        var player2 = Substitute.For<IPlayer>();
+
+        player1.MakeMove().Returns(0, 0, 0, 1, 2);
+        player2.MakeMove().Returns(3, 4, 5);
+        
+        var ticTacToe  = new TicTacToe(player1, player2);
+        var result = ticTacToe.Play();
+
+        result.Should().Be(player1.Symbol);
+    }
 
 }

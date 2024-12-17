@@ -19,7 +19,13 @@ public class TicTacToe
     {
         for(int i=0; i<9; i++)
         {
-            var movePosition = CurrentPlayer.MakeMove();
+            int movePosition;
+            do
+            {
+                movePosition = CurrentPlayer.MakeMove();
+            }
+            while (!IsValidMove(movePosition));
+
             _board[movePosition] = CurrentPlayer.Symbol;
 
             if (CheckWin(CurrentPlayer.Symbol))
@@ -33,6 +39,7 @@ public class TicTacToe
         return '\0';
     }
 
+    private bool IsValidMove(int position) => _board[position] == ' ';
     private bool CheckWin(char symbol)
     {
         if (_board[0] == _board[3] && _board[0] == _board[6] && _board[0] == symbol) return true;

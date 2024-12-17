@@ -199,4 +199,16 @@ public class TicTacToeTests
         result.Should().Be(player1.Symbol);
     }
 
+    [Fact]
+    public void TicTacToe_WhenCreate_ShouldShowCreationMessage()
+    {
+        var output = new StringWriter();
+        Console.SetOut(output);   
+        
+        var ticTacToe  = new TicTacToe(new Player(), new Player());
+
+        var consoleOutput = output.ToString().Trim();
+        var expexted = "Game Board Creation…\n | | \n-+-+-\n | | \n-+-+-\n | | \nBoard Created.\nThe game will start with player X";
+        consoleOutput.Should().Be(expexted);
+    }
 }

@@ -14,6 +14,7 @@ public class TicTacToe
         _player1.Symbol = 'X';
         _player2.Symbol = 'O';
         CurrentPlayer = player1;
+        Console.WriteLine($"Game Board Creation…\n{BoardToOutputString()}Board Created.\nThe game will start with player {CurrentPlayer.Symbol}");
     }
     public char Play()
     {
@@ -37,6 +38,24 @@ public class TicTacToe
         }
 
         return '\0';
+    }
+
+    private string BoardToOutputString()
+    {
+        var result = string.Empty;
+        
+        for (int i = 0; i < _board.Length; i++)
+        {
+            result += _board[i];
+            if (i % 3 < 2)
+                result += "|";
+            else if (i == 8)
+                result += "\n";
+            else 
+                result += "\n-+-+-\n";
+        }
+
+        return result;
     }
 
     private bool IsValidMove(int position) => _board[position] == ' ';

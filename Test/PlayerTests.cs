@@ -1,10 +1,15 @@
-﻿namespace Test;
+﻿using FluentAssertions;
+using TicTacToeYellowBelt;
 
-public class UnitTest1
+namespace Test;
+
+public class PlayerTests
 {
     [Fact]
-    public void Test1()
+    public void Player_WhenChangeSymbol_ShouldChangeTheSymbol()
     {
-
+        var player = new Player();
+        player.Symbol = 'X';
+        player.Symbol.Should().Be('X');
     }
 }

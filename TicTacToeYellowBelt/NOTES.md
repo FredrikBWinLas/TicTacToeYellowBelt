@@ -20,3 +20,13 @@ test that player 1 is X
 test that player 2 is O
 test that player 1 is starting
 
+
+### Goal: Milestone 2 
+### Time 🍅
+### Notes:
+
+## Won with vertical line - Play method where player alternates and check for wins
+X won first column
+O won second column
+X won third column
+

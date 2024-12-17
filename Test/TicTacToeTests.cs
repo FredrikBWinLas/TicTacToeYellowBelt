@@ -208,7 +208,7 @@ public class TicTacToeTests
         var ticTacToe  = new TicTacToe(new Player(), new Player());
 
         var consoleOutput = output.ToString().Trim();
-        var expexted = "Game Board Creation…\n | | \n-+-+-\n | | \n-+-+-\n | | \nBoard Created.\nThe game will start with player X\n";
+        var expexted = "Game Board Creation…\n | | \n-+-+-\n | | \n-+-+-\n | | \nBoard Created.\nThe game will start with player X";
         consoleOutput.Should().Be(expexted);
     }
     
@@ -268,5 +268,20 @@ public class TicTacToeTests
         var consoleOutput = output.ToString().Trim();
         consoleOutput.Should().Contain("THE GAME ENDS WITH A DRAW!");
     }
+    [Fact]
+    public void TicTacToe_WhenPlay_ShouldHaveTimeoutBetweenMoves()
+    {
+        var player1 = Substitute.For<IPlayer>();
+        var player2 = Substitute.For<IPlayer>();
+        
+        var sleeper = Substitute.For<ISleeper>();
 
+        player1.MakeMove().Returns(0, 3, 6);
+        player2.MakeMove().Returns(1, 2, 4);
+        
+        var ticTacToe  = new TicTacToe(player1, player2, sleeper);
+        ticTacToe.Play();
+
+        sleeper.Received(5).Sleep();
+    }
 }

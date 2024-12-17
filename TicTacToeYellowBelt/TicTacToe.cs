@@ -7,10 +7,13 @@ public class TicTacToe
     public IPlayer CurrentPlayer { get; set; }
     private IPlayer _player1;
     private IPlayer _player2;
-    public TicTacToe(IPlayer player1, IPlayer player2)
+    private readonly ISleeper? _sleeper;
+
+    public TicTacToe(IPlayer player1, IPlayer player2, ISleeper? sleeper = null)
     {
         _player1 = player1;
         _player2 = player2;
+        _sleeper = sleeper;
         _player1.Symbol = 'X';
         _player2.Symbol = 'O';
         CurrentPlayer = player1;
@@ -20,6 +23,10 @@ public class TicTacToe
     {
         for(int i=0; i<9; i++)
         {
+            if (_sleeper is not null)
+            {
+                _sleeper.Sleep();
+            }
             Console.WriteLine($"Player {CurrentPlayer.Symbol}:");
             int movePosition;
             do

@@ -249,4 +249,24 @@ public class TicTacToeTests
         var consoleOutput = output.ToString().Trim();
         consoleOutput.Should().Contain("PLAYER X WON!");
     }
+    
+    [Fact]
+    public void TicTacToe_WhenThereIsNoWinner_ShouldPrintTheDraw()
+    {
+        var output = new StringWriter();
+        Console.SetOut(output);   
+        
+        var player1 = Substitute.For<IPlayer>();
+        var player2 = Substitute.For<IPlayer>();
+
+        player1.MakeMove().Returns(0, 2, 5, 6, 7);
+        player2.MakeMove().Returns(1, 3, 4, 8);
+        
+        var ticTacToe  = new TicTacToe(player1, player2);
+        ticTacToe.Play();
+
+        var consoleOutput = output.ToString().Trim();
+        consoleOutput.Should().Contain("THE GAME ENDS WITH A DRAW!");
+    }
+
 }

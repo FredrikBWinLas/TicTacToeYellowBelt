@@ -41,6 +41,7 @@ public class TicTacToe
             CurrentPlayer = CurrentPlayer == _player1 ? _player2 : _player1;
         }
         
+        Console.WriteLine("THE GAME ENDS WITH A DRAW!");
         return '\0';
     }
 

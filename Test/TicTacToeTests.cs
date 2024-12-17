@@ -230,4 +230,23 @@ public class TicTacToeTests
         var consoleOutput = output.ToString().Trim();
         consoleOutput.Should().Contain("Player O:");
     }
+    
+    [Fact]
+    public void TicTacToe_WhenPlayerWins_ShouldPrintTheWinner()
+    {
+        var output = new StringWriter();
+        Console.SetOut(output);   
+        
+        var player1 = Substitute.For<IPlayer>();
+        var player2 = Substitute.For<IPlayer>();
+
+        player1.MakeMove().Returns(0, 3, 6);
+        player2.MakeMove().Returns(1, 2, 4);
+        
+        var ticTacToe  = new TicTacToe(player1, player2);
+        ticTacToe.Play();
+
+        var consoleOutput = output.ToString().Trim();
+        consoleOutput.Should().Contain("PLAYER X WON!");
+    }
 }

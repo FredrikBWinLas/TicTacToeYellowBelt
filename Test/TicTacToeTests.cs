@@ -50,4 +50,19 @@ public class TicTacToeTests
         ticTacToe.CurrentPlayer.Should().Be(player1);
     }
 
+    [Fact]
+    public void TicTacToe_XWonWithAVerticalLineInFirstColumn()
+    {
+        var player1 = Substitute.For<IPlayer>();
+        var player2 = Substitute.For<IPlayer>();
+
+        player1.MakeMove().Returns(0, 3, 6);
+        player2.MakeMove().Returns(1, 2, 4);
+        
+        var ticTacToe  = new TicTacToe(player1, player2);
+        var result = ticTacToe.Play();
+
+        result.Should().Be(player1.Symbol);
+    }
+
 }

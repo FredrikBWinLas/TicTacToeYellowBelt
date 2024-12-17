@@ -139,4 +139,19 @@ public class TicTacToeTests
 
         result.Should().Be(player1.Symbol);
     }
+    
+    [Fact]
+    public void TicTacToe_XWonWithADiagonalLineFromLeftToRight()
+    {
+        var player1 = Substitute.For<IPlayer>();
+        var player2 = Substitute.For<IPlayer>();
+
+        player1.MakeMove().Returns(0, 4, 8);
+        player2.MakeMove().Returns(1, 2, 3);
+        
+        var ticTacToe  = new TicTacToe(player1, player2);
+        var result = ticTacToe.Play();
+
+        result.Should().Be(player1.Symbol);
+    }
 }

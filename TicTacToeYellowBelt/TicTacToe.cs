@@ -14,12 +14,13 @@ public class TicTacToe
         _player1.Symbol = 'X';
         _player2.Symbol = 'O';
         CurrentPlayer = player1;
-        Console.WriteLine($"Game Board Creation…\n{BoardToOutputString()}Board Created.\nThe game will start with player {CurrentPlayer.Symbol}");
+        Console.WriteLine($"Game Board Creation…\n{BoardToOutputString()}Board Created.\nThe game will start with player {CurrentPlayer.Symbol}\n");
     }
     public char Play()
     {
         for(int i=0; i<9; i++)
         {
+            Console.WriteLine($"Player {CurrentPlayer.Symbol}:");
             int movePosition;
             do
             {
@@ -28,15 +29,18 @@ public class TicTacToe
             while (!IsValidMove(movePosition));
 
             _board[movePosition] = CurrentPlayer.Symbol;
-
+            
+            Console.WriteLine(BoardToOutputString());
+            
             if (CheckWin(CurrentPlayer.Symbol))
             {
+                Console.WriteLine($"\nPLAYER {CurrentPlayer.Symbol} WON!");
                 return CurrentPlayer.Symbol;
             }
 
             CurrentPlayer = CurrentPlayer == _player1 ? _player2 : _player1;
         }
-
+        
         return '\0';
     }
 

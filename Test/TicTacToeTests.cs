@@ -208,7 +208,26 @@ public class TicTacToeTests
         var ticTacToe  = new TicTacToe(new Player(), new Player());
 
         var consoleOutput = output.ToString().Trim();
-        var expexted = "Game Board Creation…\n | | \n-+-+-\n | | \n-+-+-\n | | \nBoard Created.\nThe game will start with player X";
+        var expexted = "Game Board Creation…\n | | \n-+-+-\n | | \n-+-+-\n | | \nBoard Created.\nThe game will start with player X\n";
         consoleOutput.Should().Be(expexted);
+    }
+    
+    [Fact]
+    public void TicTacToe_WhenPlay_ShouldPrintTheCurrentPlayer()
+    {
+        var output = new StringWriter();
+        Console.SetOut(output);   
+        
+        var player1 = Substitute.For<IPlayer>();
+        var player2 = Substitute.For<IPlayer>();
+
+        player1.MakeMove().Returns(0, 3, 6);
+        player2.MakeMove().Returns(1, 2, 4);
+        
+        var ticTacToe  = new TicTacToe(player1, player2);
+        ticTacToe.Play();
+
+        var consoleOutput = output.ToString().Trim();
+        consoleOutput.Should().Contain("Player O:");
     }
 }

@@ -21,7 +21,7 @@ test that player 2 is O
 test that player 1 is starting
 
 
-### Goal: Milestone 2 
+### Goal: Milestone 2
 ### Time 🍅
 ### Notes:
 
@@ -29,4 +29,17 @@ test that player 1 is starting
 X won first column
 O won second column
 X won third column
+
+### Goal: Milestone 3 and 4
+### Time 🍅
+### Notes:
+
+## Won with horizontal line
+X won first row
+O won second row
+X won third row
+
+## Won with diagonal line
+X won left to right diagonal
+O won right to left diagonal
 

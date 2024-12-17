@@ -30,7 +30,7 @@ X won first column
 O won second column
 X won third column
 
-### Goal: Milestone 3 and 4
+### Goal: Milestone 3, 4 and 5
 ### Time 🍅
 ### Notes:
 
@@ -43,3 +43,8 @@ X won third row
 X won left to right diagonal
 O won right to left diagonal
 
+## Draw
+The board is full and no winners
+
+## No cheating
+Players should not be able to play in occupated spots

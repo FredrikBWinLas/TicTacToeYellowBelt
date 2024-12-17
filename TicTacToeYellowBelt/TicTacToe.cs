@@ -17,7 +17,7 @@ public class TicTacToe
     }
     public char Play()
     {
-        while(true)
+        for(int i=0; i<9; i++)
         {
             var movePosition = CurrentPlayer.MakeMove();
             _board[movePosition] = CurrentPlayer.Symbol;

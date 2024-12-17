@@ -168,4 +168,20 @@ public class TicTacToeTests
 
         result.Should().Be(player2.Symbol);
     }
+    
+    [Fact]
+    public void TicTacToe_TheBoardIsFull_ShouldReturn0()
+    {
+        var player1 = Substitute.For<IPlayer>();
+        var player2 = Substitute.For<IPlayer>();
+
+        player1.MakeMove().Returns(0, 2, 5, 6, 7);
+        player2.MakeMove().Returns(1, 3, 4, 8);
+        
+        var ticTacToe  = new TicTacToe(player1, player2);
+        var result = ticTacToe.Play();
+
+        result.Should().Be('\0');
+    }
+
 }

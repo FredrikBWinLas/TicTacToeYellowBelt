@@ -41,6 +41,7 @@ public class TicTacToe
         
         if (_board[0] == _board[1] && _board[0] == _board[2] && _board[0] == symbol) return true;
         if (_board[3] == _board[4] && _board[3] == _board[5] && _board[3] == symbol) return true;
+        if (_board[6] == _board[7] && _board[6] == _board[8] && _board[6] == symbol) return true;
         return false;
     }
 }

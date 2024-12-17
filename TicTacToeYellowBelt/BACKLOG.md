@@ -58,12 +58,14 @@ Player O should won
 
 The game ends with a draw
 
-
 2. Players should not be able to play in occupated spots
 
 
 # Milestone 6 - Customer's desires
 
-1. 2 seconds timeout between each round
-2. 
+1. Printing to the screen: 
+   1. when creating
+   2. player move
+   3. the result of the game
 
+2. Two seconds timeout between each round

@@ -48,3 +48,13 @@ The board is full and no winners
 
 ## No cheating
 Players should not be able to play in occupated spots
+
+
+### Goal: Milestone 6
+### Time 🍅
+### Notes:
+
+Print creating message
+Printing to the screen when player moves
+Print the result of the game
+Two seconds timeout between each round

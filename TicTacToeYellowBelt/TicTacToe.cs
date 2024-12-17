@@ -26,6 +26,8 @@ public class TicTacToe
             {
                 return CurrentPlayer.Symbol;
             }
+
+            CurrentPlayer = CurrentPlayer == _player1 ? _player2 : _player1;
         }
 
         return '\0';
@@ -34,6 +36,7 @@ public class TicTacToe
     private bool CheckWin(char symbol)
     {
         if (_board[0] == _board[3] && _board[0] == _board[6] && _board[0] == symbol) return true;
+        if (_board[1] == _board[4] && _board[1] == _board[7] && _board[1] == symbol) return true;
         return false;
     }
 }
